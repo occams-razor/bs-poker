@@ -2,6 +2,7 @@ package vis;
 
 import poker.Playable;
 import poker.Player;
+import poker.RoundState;
 
 /**
  * 
@@ -16,10 +17,12 @@ public class PlayerUI {
 	/**
 	 * Called by a Player
 	 * 
+	 * @param state
 	 * 
-	 * @return user inputed play
+	 * 
+	 * @return guaranteed game legal play
 	 */
-	public Playable getPlay() {
+	public Playable getPlay(RoundState state) {
 		return null; // TODO
 
 	}

@@ -13,6 +13,12 @@ public class RoundState {
 	private Playable previous = null; // TODO is null OK
 	private int currentTurnCount = 0;
 
+	private Table table = new Table();
+
+	public RoundState() {
+		// table = new
+	}
+
 	/**
 	 * 
 	 * @return
@@ -40,9 +46,22 @@ public class RoundState {
 		return currentTurnCount;
 	}
 
+	/**
+	 * Adds the provided cards to the table
+	 * 
+	 * @param toDeal
+	 */
 	public void addCards(List<Card> toDeal) {
-		// TODO Auto-generated method stub
+		table.add(toDeal);
 
+	}
+
+	/**
+	 * 
+	 * @return all the cards on the table
+	 */
+	public List<Card> getCards() {
+		return table.getCards();
 	}
 
 }

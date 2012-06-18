@@ -2,21 +2,38 @@ package poker;
 
 import java.util.List;
 
+import playable.Hand;
+
 import vis.PlayerUI;
 
 public class Player {
 	private String name;
 	private int numCards = 1;
 	private boolean isAlive;
+
+	private Playable currentPlay;
+
 	// boolean isActive;
 	Hand myHand;
 
 	PlayerUI ui;
+	private List<Card> cards;
 
+	/**
+	 * Gives the player their cards
+	 * 
+	 * @param cards
+	 */
 	public void deal(List<Card> cards) {
-		// TODO
+		this.cards = cards;
+		// assert (cards.size() == numCards);
 	}
 
+	/**
+	 * Number of cards the player should receive (starts at 1, up to 5)
+	 * 
+	 * @return
+	 */
 	public int getNumCards() {
 		return numCards;
 	}
@@ -29,17 +46,7 @@ public class Player {
 	 * @return
 	 */
 	public Playable getPlay(RoundState state) {
-
-		Playable p = ui.getPlay(RoundState);
-		// checks if is legal move
-		if (p.isLegal(state)) {
-			// ui.notifyBadPlay();
-		}
-		// if is not legal:
-		// ui.
-		return null;
-		// TODO Auto-generated method stub
-
+		return currentPlay = ui.getPlay(state);
 	}
 
 	/**

@@ -27,8 +27,8 @@ public class Game {
 			// table.clear();
 			for (Player p : players) {
 				List<Card> toDeal = deck.getCards(p.getNumCards());
-				state.addCards(toDeal);
-				p.deal(toDeal);
+				state.addCards(toDeal); // updates table
+				p.deal(toDeal); // updates players
 			}
 
 			// play loop
@@ -40,7 +40,7 @@ public class Game {
 
 					if (nextPlay.isBS()) {
 						// verify
-						if (nextPlay.isInPlay(state)) {
+						if (state.getPreviousPlay().isInPlay(state)) {
 							// previous player wins- round over
 							nextPlay.getOwner().onLose();
 							break round;
