@@ -5,8 +5,8 @@ import java.util.List;
 import vis.PlayerUI;
 
 public class Player {
-	String name;
-	int numCards;
+	private String name;
+	private int numCards = 1;
 	private boolean isAlive;
 	// boolean isActive;
 	Hand myHand;
@@ -14,23 +14,26 @@ public class Player {
 	PlayerUI ui;
 
 	public void deal(List<Card> cards) {
-
+		// TODO
 	}
 
 	public int getNumCards() {
-		// TODO Auto-generated method stub
-		return 0;
+		return numCards;
 	}
 
 	/**
+	 * Gets a new user inputted play, guaranteed to be game legal.
+	 * {@link Playable#isLegal(RoundState)}
 	 * 
+	 * @param state
+	 * @return
 	 */
 	public Playable getPlay(RoundState state) {
 
-		Playable p = ui.getPlay();
-		// checks if is legal mouve
+		Playable p = ui.getPlay(RoundState);
+		// checks if is legal move
 		if (p.isLegal(state)) {
-			ui.notifyBadPlay();
+			// ui.notifyBadPlay();
 		}
 		// if is not legal:
 		// ui.
