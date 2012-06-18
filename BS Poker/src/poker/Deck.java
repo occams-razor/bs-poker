@@ -1,5 +1,6 @@
 package poker;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,16 +10,15 @@ import java.util.List;
  * 
  */
 public class Deck {
-
-	private Card[] cards = new Card[52];
+	
+	private List<Card> cards = new LinkedList<Card>();
 
 	public Deck() {
 		// initialize cards
-		int i = 0;
 		for (int suitValue = 0; suitValue < 4; suitValue++) {
 			char suit = toChar(suitValue);
 			for (int rank = Card.TWO_RANK; rank <= Card.ACE_RANK; rank++) {
-				cards[i++] = new Card(rank, suit);
+				cards.add(new Card(rank, suit));
 			}
 		}
 
@@ -46,19 +46,29 @@ public class Deck {
 
 	/**
 	 * Randomizes the order of the cards
+	 * For a random position in cards list, takes out that card and adds it to the beginning of a temp list.
+	 * Then copies the temp list into cards list
 	 */
 	public void shuffle() {
-		// TODO
+		List<Card> tempCards = new LinkedList<Card>();
+		for (int i = 52; i>0; i--){
+			int position = (int) (Math.random() * i);
+			tempCards.add(52-i, cards.remove(position));
+		}
+		cards.addAll(tempCards);
 	}
 
 	/**
 	 * Picks up cards from the top of the deck.
-	 * 
 	 * @param numCards
-	 * @return
+	 * @return numCards cards from the deck
 	 */
 	public List<Card> getCards(int numCards) {
-		return null; // TODO
+		List<Card> tempCards = new LinkedList<Card>();
+		for (int i = 0; i < numCards; i ++){
+		tempCards.add(cards.remove(51 - i));
+		}
+		return tempCards; // TODO
 	}
 
 }
