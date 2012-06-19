@@ -14,8 +14,8 @@ import poker.RoundState;
  * @author ajc
  * 
  */
-public class High implements Hand {
-
+public class High extends Hand {
+	private final String handValue;
 	private final int rank;
 	private final Player owner;
 
@@ -27,7 +27,7 @@ public class High implements Hand {
 	public High(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-
+		this.handValue = "a" + ('a' + rank)+ '#';
 	}
 
 	@Override
@@ -40,10 +40,6 @@ public class High implements Hand {
 		return false;
 	}
 
-	@Override
-	public boolean isLegal(RoundState state) {
-		return false;
-	}
 
 	@Override
 	public boolean isInPlay(RoundState state) {
@@ -57,16 +53,6 @@ public class High implements Hand {
 		return false;
 	}
 
-	@Override
-	public int compareTo(Playable o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	@Override
-	public int getValue() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
