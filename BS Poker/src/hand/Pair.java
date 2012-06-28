@@ -22,7 +22,7 @@ public class Pair extends Hand {
 	@Override
 	public Player getOwner() {
 		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override

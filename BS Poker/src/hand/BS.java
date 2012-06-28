@@ -6,16 +6,16 @@ import poker.Player;
 import poker.RoundState;
 
 public class BS extends Hand {
-	
+
 	private final Player owner;
 	private final String handValue;
-	
-	public BS(Player owner){
+
+	public BS(Player owner) {
 		this.owner = owner;
 		handValue = "zzz";
-		
+
 	}
-	
+
 	@Override
 	public int compareTo(Playable o) {
 		return 1;
@@ -35,7 +35,7 @@ public class BS extends Hand {
 	}
 
 	@Override
-	//doesn't matter, shouldn't ever happen
+	// doesn't matter, shouldn't ever happen
 	public boolean isInPlay(RoundState state) {
 		// TODO Auto-generated method stub
 		return false;
@@ -43,6 +43,12 @@ public class BS extends Hand {
 
 	@Override
 	public Player getOwner() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getValue() {
 		// TODO Auto-generated method stub
 		return null;
 	}
