@@ -4,6 +4,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import poker.Player;
+import poker.RoundState;
 
 public class PairHand {
 
@@ -18,8 +19,8 @@ public class PairHand {
 	@Test
 	public void testIsBS() {
 		Player player = new Player();
-		// Pair pair = new Pair(player, 2);
-		// fail("Not yet implemented");
+		Pair pair = new Pair(player, 2);
+		Assert.assertTrue("Pair is not BS", pair.isBS() == false);
 	}
 
 	@Test
