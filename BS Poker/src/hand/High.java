@@ -4,7 +4,6 @@ import java.util.List;
 
 import playable.Hand;
 import poker.Card;
-import poker.Playable;
 import poker.Player;
 import poker.RoundState;
 
@@ -27,7 +26,7 @@ public class High extends Hand {
 	public High(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "a" + ('a' + rank)+ '#';
+		this.handValue = "a" + ('a' + rank) + '#';
 	}
 
 	@Override
@@ -39,7 +38,6 @@ public class High extends Hand {
 	public boolean isBS() {
 		return false;
 	}
-
 
 	@Override
 	public boolean isInPlay(RoundState state) {
@@ -53,6 +51,9 @@ public class High extends Hand {
 		return false;
 	}
 
-
+	@Override
+	public String getValue() {
+		return handValue;
+	}
 
 }

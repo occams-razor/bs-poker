@@ -44,4 +44,11 @@ public interface Playable extends Comparable<Playable> {
 	 */
 	public boolean isInPlay(RoundState state);
 
+	/**
+	 * String representation of the value of a play
+	 * 
+	 * @return
+	 */
+	public String getValue();
+
 }
