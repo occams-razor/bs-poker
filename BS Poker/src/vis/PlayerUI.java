@@ -1,18 +1,38 @@
 package vis;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JComponent;
+
 import poker.Playable;
 import poker.Player;
 import poker.RoundState;
 
 /**
  * 
- * 
+ * PlayerUI provides a view for the Player, as well as controls for it.
  * {@link Player}
  * 
  * @author ajc
  * 
  */
-public class PlayerUI {
+public class PlayerUI extends JComponent {
+
+	private final Player player;
+
+	public PlayerUI(Player player) {
+		this.player = player;
+	}
+
+	public void paintComponent(Graphics g) {
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+
+		g.setColor(Color.WHITE);
+		g.drawString(player.getName(), 20, 20);
+
+	}
 
 	/**
 	 * Called by a Player
@@ -34,5 +54,7 @@ public class PlayerUI {
 	public void notifyBadPlay() {
 
 	}
+
+	// public static void
 
 }
