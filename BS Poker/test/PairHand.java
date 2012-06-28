@@ -1,8 +1,13 @@
 import hand.Pair;
+
+import java.util.LinkedList;
+import java.util.List;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
 
+import poker.Card;
 import poker.Player;
 import poker.RoundState;
 
@@ -10,7 +15,7 @@ public class PairHand {
 
 	@Test
 	public void testGetOwner() {
-		Player player = new Player();
+		Player player = new Player("Samanthero");
 		Pair pair = new Pair(player, 2);
 		Assert.assertTrue("These should be same", pair.getOwner()
 				.equals(player));
@@ -18,13 +23,17 @@ public class PairHand {
 
 	@Test
 	public void testIsBS() {
-		Player player = new Player();
+		Player player = new Player("Jerry");
 		Pair pair = new Pair(player, 2);
 		Assert.assertTrue("Pair is not BS", pair.isBS() == false);
 	}
 
 	@Test
 	public void testIsInPlay() {
+		RoundState st = new RoundState();
+		List<Card> cards = new LinkedList<Card>();
+		cards.add(new Card(2, 's'));
+		st.addCards(cards);
 		// fail("Not yet implemented");
 	}
 
