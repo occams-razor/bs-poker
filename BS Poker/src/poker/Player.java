@@ -57,7 +57,9 @@ public class Player {
 	 * @return
 	 */
 	public Playable getPlay(RoundState state) {
-		return currentPlay = ui.getPlay(state);
+		// TODO implement
+		// return currentPlay = ui.getPlay(state);
+		return null;
 	}
 
 	/**

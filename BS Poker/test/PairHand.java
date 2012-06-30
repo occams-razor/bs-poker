@@ -19,6 +19,7 @@ public class PairHand {
 		Pair pair = new Pair(player, 2);
 		Assert.assertTrue("These should be same", pair.getOwner()
 				.equals(player));
+		// Assert.assertTrue("These should be same", false);
 	}
 
 	@Test
@@ -33,7 +34,11 @@ public class PairHand {
 		RoundState st = new RoundState();
 		List<Card> cards = new LinkedList<Card>();
 		cards.add(new Card(2, 's'));
+		cards.add(new Card(2, 'd'));
 		st.addCards(cards);
+		Player player = new Player("Joel");
+		Pair pair = new Pair(player, 2);
+		Assert.assertTrue("There is a pair of twos", pair.isInPlay(st));
 		// fail("Not yet implemented");
 	}
 

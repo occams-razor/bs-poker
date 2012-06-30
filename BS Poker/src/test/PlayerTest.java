@@ -23,11 +23,9 @@ public class PlayerTest {
 
 		player.deal(cards);
 
-		PlayerUI playerUI = new PlayerUI(player);
+		// PlayerUI playerUI = new PlayerUI(player);
+		// playerUI.setOpaque(true);
 
-		JFrame frame = new JFrame("Player test");
-		frame.getContentPane().add(playerUI);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JFrame frame = new PlayerUI(player);
 	}
 }

@@ -1,84 +1,187 @@
 package vis;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.BorderLayout;
+import java.awt.ComponentOrientation;
+import java.awt.FlowLayout;
 
-import javax.swing.JComponent;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.WindowConstants;
 
-import poker.Card;
-import poker.Playable;
 import poker.Player;
-import poker.RoundState;
 
 /**
- * 
- * PlayerUI provides a view for the Player, as well as controls for it.
+ * this PlayerUI provides a view for the Player, as well as controls for it.
  * {@link Player}
  * 
  * @author ajc
  * 
  */
-public class PlayerUI extends JComponent {
+public class PlayerUI extends JFrame {
+	private JList list;
+	private DefaultListModel listModel;
 
-	public static final int CARD_WIDTH = 100;
-	public static final int CARD_HEIGHT = 175;
+	private static final String hireString = "Hire";
+	private static final String fireString = "Fire";
+	private JButton fireButton;
+	private JTextField employeeName;
 
-	public static final int CARD_XSPACE = 20;
+	private PlayerStats playerstats;
 
-	private final Player player;
+	FlowLayout experimentLayout = new FlowLayout();
 
 	public PlayerUI(Player player) {
-		this.player = player;
+		// super(new BorderLayout());
+
+		playerstats = new PlayerStats(player);
+
+		listModel = new DefaultListModel();
+		listModel.addElement("Jane Doe");
+		listModel.addElement("John Smith");
+		listModel.addElement("Kathy Green");
+
+		// Create the list and put it in a scroll pane.
+		list = new JList(listModel);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list.setSelectedIndex(0);
+		// list.addListSelectionListener(this);
+		list.setVisibleRowCount(5);
+		JScrollPane listScrollPane = new JScrollPane(playerstats);
+
+		JList list2 = new JList(listModel);
+		list2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list2.setSelectedIndex(0);
+		// list.addListSelectionListener(this);
+		list2.setVisibleRowCount(10);
+
+		/**
+		 * 
+		 * 
+		 * 
+		 */
+
+		final JPanel compsToExperiment = new JPanel();
+		compsToExperiment.setLayout(experimentLayout);
+		// experimentLayout.setAlignment(FlowLayout.TRAILING);
+
+		JPanel controls = new JPanel();
+		controls.setLayout(new FlowLayout());
+
+		compsToExperiment.add(list);
+		compsToExperiment.add(list2);
+		controls.add(playerstats);
+
+		compsToExperiment
+				.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+		getContentPane().add(compsToExperiment, BorderLayout.AFTER_LINE_ENDS);
+		getContentPane().add(controls, BorderLayout.NORTH);
+		// compsToExperiment.validate();
+		// compsToExperiment.repaint();
+		//
+		// JButton hireButton = new JButton(hireString);
+		// // HireListener hireListener = new HireListener(hireButton);
+		// // hireButton.setActionCommand(hireString);
+		// // hireButton.addActionListener(hireListener);
+		// // hireButton.setEnabled(false);
+		//
+		// fireButton = new JButton(fireString);
+		// fireButton.setActionCommand(fireString);
+		// // fireButton.addActionListener(new FireListener());
+		//
+		// employeeName = new JTextField(10);
+		// // employeeName.addActionListener(hireListener);
+		// // employeeName.getDocument().addDocumentListener(hireListener);
+		// // String name = listModel.getElementAt(list.getSelectedIndex())
+		// // .toString();
+		//
+		// // Create a panel that uses BoxLayout.
+		// JPanel buttonPane = new JPanel();
+		// buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
+		// buttonPane.add(fireButton);
+		// buttonPane.add(Box.createHorizontalStrut(5));
+		// buttonPane.add(new JSeparator(SwingConstants.VERTICAL));
+		// buttonPane.add(Box.createHorizontalStrut(5));
+		// buttonPane.add(employeeName);
+		// buttonPane.add(hireButton);
+		// buttonPane.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+		// BoxLayout boxLayout = new BoxLayout(getContentPane(),
+		// BoxLayout.Y_AXIS); // top
+		// // to
+		// // bottom
+		// setLayout(boxLayout);
+		// add(playerstats);
+		// add(list);
+		// add(list2);
+
+		// int align = FlowLayout.CENTER; // or LEFT, RIGHT
+		// JPanel panel = new JPanel(new FlowLayout(align));
+		// FlowLayout layout = new FlowLayout(FlowLayout.LEFT);
+		// getContentPane().setLayout(layout);
+		// getContentPane().add(playerstats);
+		// getContentPane().add(list);
+		// panel.add(component1);
+		// panel.add(component2);
+
+		// GroupLayout layout = new GroupLayout(getContentPane());
+		// getContentPane().setLayout(layout);
+		// layout.setAutoCreateGaps(true);
+		// layout.setAutoCreateContainerGaps(true);
+
+		// layout.setHorizontalGroup(layout.createSequentialGroup()
+		// .addComponent(playerstats).addComponent(list));
+
+		// layout.createSequentialGroup()
+		// .add(playerstats)
+		// .addPreferredGap(LayoutStyle.RELATED, GroupLayout.DEFAULT_SIZE,
+		// Short.MAX_VALUE).add(list);
+
+		// layout.setHorizontalGroup(layout.createSequentialGroup()
+		// .addComponent(list).addComponent(playerstats));
+
+		// layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+		// .add(playerstats, GroupLayout.DEFAULT_SIZE,
+		// GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+		// .add(list, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+		// Short.MAX_VALUE);
+
+		// layout.setHorizontalGroup(layout
+		// .createSequentialGroup()
+		// .addComponent(playerstats)
+		// .addGroup(
+		// layout.createParallelGroup(LEADING)
+		// .addComponent(textField)
+		// .addGroup(
+		// layout.createSequentialGroup()
+		// .addGroup(
+		// layout.createParallelGroup(
+		// LEADING)
+		// .addComponent(
+		// caseCheckBox)
+		// .addComponent(
+		// wholeCheckBox))
+		// .addGroup(
+		// layout.createParallelGroup(
+		// LEADING)
+		// .addComponent(
+		// wrapCheckBox)
+		// .addComponent(
+		// backCheckBox))))
+		// .addGroup(
+		// layout.createParallelGroup(LEADING)
+		// .addComponent(findButton)
+		// .addComponent(cancelButton)));
+
+		setTitle("PlayerUI");
+		pack();
+		setVisible(true);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
-
-	public void paintComponent(Graphics g) {
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-
-		// name
-		g.setColor(Color.WHITE);
-		g.drawString(player.getName(), 20, 20);
-
-		g.drawString("Alive?: " + (player.isAlive() ? "Alive" : "Dead"), 20, 40);
-
-		if (player.hasCards()) {
-			int x = 0;
-			for (Card c : player.getCards()) {
-				drawCard(g, x += CARD_WIDTH + CARD_XSPACE, 50, c);
-			}
-		}
-
-	}
-
-	private static void drawCard(Graphics g, int x, int y, Card c) {
-		g.setColor(Color.RED);
-		g.drawRect(x, y, CARD_WIDTH, CARD_HEIGHT);
-
-		g.drawString(c.getSuitName(), x + 20, y + 50);
-		g.drawString("" + c.getRank(), x + CARD_WIDTH / 2, y + 30);
-	}
-
-	/**
-	 * Called by a Player
-	 * 
-	 * @param state
-	 * 
-	 * 
-	 * @return guaranteed game legal play
-	 */
-	public Playable getPlay(RoundState state) {
-		return null; // TODO
-
-	}
-
-	/**
-	 * Called by a Player to notify that the recently returned value of
-	 * {@link #getPlay()} is not legal
-	 */
-	public void notifyBadPlay() {
-
-	}
-
-	// public static void
-
 }
