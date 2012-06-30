@@ -16,24 +16,21 @@ public class Pair extends Hand {
 	public Pair(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "b" + ('a' + rank) + '#';
+		this.handValue = "b" +(char)('a' + rank) + '#';
 	}
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
 		return owner;
 	}
 
 	@Override
 	public boolean isBS() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isInPlay(RoundState state) {
-		// TODO Auto-generated method stub
 		List<Card> cards = state.getCards();
 		for (Card c : cards) {
 			if (c.getRank() != rank)

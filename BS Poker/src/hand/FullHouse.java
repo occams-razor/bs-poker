@@ -18,13 +18,12 @@ public class FullHouse extends Hand {
 		this.owner = owner;
 		this.rank1 = rank1;
 		this.rank2 = rank2;
-		this.handValue = "g" + ('a' + rank1) + ('a' + rank2);
+		this.handValue = "g" + (char)('a' + rank1) + ('a' + rank2);
 	}
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override

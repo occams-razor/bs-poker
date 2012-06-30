@@ -36,13 +36,13 @@ public class RoyalFlush extends Hand {
 			this.rank = -10;
 			break;
 		}
-		this.handValue = "j" + ('a' + this.rank) + '#';
+		this.handValue = "j" + (char)('a' + this.rank) + '#';
 	}
 
 	@Override
 	public Player getOwner() {
 		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override

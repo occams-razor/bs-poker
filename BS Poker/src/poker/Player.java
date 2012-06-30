@@ -30,6 +30,11 @@ public class Player {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public String toString(){
+		return name + " " + numCards;
+	
+	}
 	/**
 	 * Gives the player their cards
 	 * 

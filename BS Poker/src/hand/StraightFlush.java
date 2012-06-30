@@ -18,13 +18,13 @@ public class StraightFlush extends Hand {
 		this.suit = suit;
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "i" + ('a' + rank) + '#';
+		this.handValue = "i" +(char) ('a' + rank) + '#';
 	}
 
 	@Override
 	public Player getOwner() {
 		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override
