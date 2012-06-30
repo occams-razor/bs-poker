@@ -16,13 +16,13 @@ public class Straight extends Hand {
 	public Straight(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "e" + ('a' + rank) + '#';
+		this.handValue = "e" +(char) ('a' + rank) + '#';
 	}
 
 	@Override
 	public Player getOwner() {
 		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override

@@ -25,8 +25,8 @@ public abstract class Hand implements Playable {
 	}
 
 	public String toString() {
-		// todo
-		return null;
+		String output = "Owner: " + getOwner() + " Hand Value: " + getValue();
+		return output;
 	}
 
 	@Override

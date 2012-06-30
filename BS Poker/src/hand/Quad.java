@@ -16,13 +16,12 @@ public class Quad extends Hand {
 	public Quad(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "h" + ('a' + rank) + '#';
+		this.handValue = "h" + (char)('a' + rank) + '#';
 	}
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override

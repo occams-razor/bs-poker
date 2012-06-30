@@ -18,13 +18,13 @@ public class TwoPair extends Hand {
 		this.owner = owner;
 		this.rank1 = rank1;
 		this.rank2 = rank2;
-		this.handValue = "c" + ('a' + rank1) + ('a' + rank2);
+		this.handValue = "c" +(char) ('a' + rank1) + ('a' + rank2);
 	}
 
 	@Override
 	public Player getOwner() {
 		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override
