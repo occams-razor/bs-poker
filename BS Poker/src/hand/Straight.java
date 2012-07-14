@@ -16,13 +16,13 @@ public class Straight extends Hand {
 	public Straight(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "e" + ('a' + rank) + '#';
+		this.handValue = "e" +(char) ('a' + rank) + '#';
 	}
 
 	@Override
 	public Player getOwner() {
 		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override
@@ -35,14 +35,6 @@ public class Straight extends Hand {
 	public boolean isInPlay(RoundState state) {
 		// TODO Auto-generated method stub
 		List<Card> cards = state.getCards();
-		for (Card c : cards) {
-			if (c.getRank() > rank)
-				cards.remove(c);
-		}
-		for (Card c : cards) {
-			if (c.getRank() < rank - 4)
-				cards.remove(c);
-		}
 		int a = 0, b = 0, c = 0, d = 0, e = 0;
 
 		for (Card p : cards) {

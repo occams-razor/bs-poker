@@ -46,4 +46,17 @@ public class Card {
 		return suit;
 	}
 
+	public String getSuitName() {
+		switch (suit) {
+		case 's':
+			return "Spades";
+		case 'c':
+			return "Clubs";
+		case 'd':
+			return "Diamonds";
+		case 'h':
+			return "Hearts";
+		}
+		return "Unknown";
+	}
 }

@@ -3,10 +3,16 @@ package poker;
 import java.util.List;
 
 import playable.Hand;
-
 import vis.PlayerUI;
 
+/**
+ * A Player has cards, is Alive or not, a name,
+ * 
+ * @author ajc
+ * 
+ */
 public class Player {
+
 	private String name;
 	private int numCards = 1;
 	private boolean isAlive;
@@ -18,6 +24,11 @@ public class Player {
 
 	PlayerUI ui;
 	private List<Card> cards;
+
+	public Player(String name) {
+		this.name = name;
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * Gives the player their cards
@@ -46,7 +57,9 @@ public class Player {
 	 * @return
 	 */
 	public Playable getPlay(RoundState state) {
-		return currentPlay = ui.getPlay(state);
+		// TODO implement
+		// return currentPlay = ui.getPlay(state);
+		return null;
 	}
 
 	/**
@@ -61,5 +74,17 @@ public class Player {
 
 	public boolean isAlive() {
 		return isAlive;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public boolean hasCards() {
+		return cards != null && cards.size() != 0;
 	}
 }

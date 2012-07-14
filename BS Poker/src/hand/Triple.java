@@ -16,13 +16,13 @@ public class Triple extends Hand {
 	public Triple(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "d" + ('a' + rank) + '#';
+		this.handValue = "d" +(char) ('a' + rank) + '#';
 	}
 
 	@Override
 	public Player getOwner() {
 		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override
@@ -34,11 +34,12 @@ public class Triple extends Hand {
 	@Override
 	public boolean isInPlay(RoundState state) {
 		List<Card> cards = state.getCards();
+		int num = 0;
 		for (Card c : cards) {
-			if (c.getRank() != rank)
-				cards.remove(c);
+			if (c.getRank() == rank)
+				num++;
 		}
-		if (cards.size() >= 3)
+		if (num >= 3)
 			return true;
 		return false;
 

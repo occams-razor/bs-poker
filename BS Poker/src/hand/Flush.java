@@ -18,18 +18,16 @@ public class Flush extends Hand {
 		this.suit = suit;
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "f" + ('a' + rank) + '#';
+		this.handValue = "f" +(char) ('a' + rank) + '#';
 	}
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override
 	public boolean isBS() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -37,15 +35,13 @@ public class Flush extends Hand {
 	public boolean isInPlay(RoundState state) {
 		// TODO Auto-generated method stub
 		List<Card> cards = state.getCards();
+		int num = 0;
 		for (Card c : cards) {
-			if (c.getSuit() != suit)
-				cards.remove(c);
+			if (c.getSuit() == suit)
+				num++;
 		}
-		for (Card c : cards) {
-			if (c.getRank() < rank)
-				cards.remove(c);
-		}
-		if (cards.size() >= 5)
+
+		if (num >= 5)
 			return true;
 		return false;
 	}

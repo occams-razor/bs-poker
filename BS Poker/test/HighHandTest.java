@@ -1,4 +1,4 @@
-import hand.Pair;
+import hand.High;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,50 +11,55 @@ import poker.Card;
 import poker.Player;
 import poker.RoundState;
 
-public class PairHand {
+public class HighHandTest {
 
 	@Test
 	public void testGetOwner() {
 		Player player = new Player("Samanthero");
-		Pair pair = new Pair(player, 2);
-		Assert.assertTrue("These should be same", pair.getOwner()
+		High high = new High(player, 2);
+		Assert.assertTrue("These should be same", high.getOwner()
 				.equals(player));
-		// Assert.assertTrue("These should be same", false);
 	}
 
 	@Test
 	public void testIsBS() {
 		Player player = new Player("Jerry");
-		Pair pair = new Pair(player, 2);
-		Assert.assertTrue("Pair is not BS", pair.isBS() == false);
+		High high = new High(player, 2);
+		Assert.assertTrue("Hand is not BS", high.isBS() == false);
 	}
 
 	@Test
 	public void testIsInPlay() {
+		Player player = new Player("Fred");
+		High high = new High(player, 3);
 		RoundState st = new RoundState();
 		List<Card> cards = new LinkedList<Card>();
 		cards.add(new Card(2, 's'));
-		cards.add(new Card(2, 'd'));
+		cards.add(new Card(3, 'd'));
+		cards.add(new Card(12, 'h'));
 		st.addCards(cards);
-		Player player = new Player("Joel");
-		Pair pair = new Pair(player, 2);
-		Assert.assertTrue("There is a pair of twos", pair.isInPlay(st));
-		// fail("Not yet implemented");
-	}
+		Assert.assertTrue("There is a three", high.isInPlay(st));
 
-	@Test
-	public void testPair() {
 		// fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetValue() {
-		// fail("Not yet implemented");
+		Player player = new Player("Ian");
+		High high = new High(player, 4);
+		Assert.assertEquals("ae#", high.getValue());
+
 	}
 
 	@Test
 	public void testCompareTo() {
-		// fail("Not yet implemented");
+		Player player1 = new Player("Andruw");
+		Player player2 = new Player("Will");
+		High high1 = new High(player1, 5);
+		High high2 = new High(player2, 5);
+		Assert
+				.assertTrue("Will has a higher hand",
+						high2.compareTo(high1) == 0);
 	}
 
 	@Test

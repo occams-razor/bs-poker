@@ -28,7 +28,6 @@ public class BS extends Hand {
 
 	@Override
 	public boolean isLegal(RoundState state) {
-		// TODO Auto-generated method stub
 		if (state.getCurrentTurnCount() > 0)
 			return true;
 		return false;
@@ -43,14 +42,12 @@ public class BS extends Hand {
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
-		return null;
+		return owner;
 	}
 
 	@Override
 	public String getValue() {
-		// TODO Auto-generated method stub
-		return null;
+		return handValue;
 	}
 
 }
