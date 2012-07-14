@@ -1,5 +1,5 @@
 import static org.junit.Assert.*;
-import hand.Quad;
+import hand.Triple;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,13 +13,13 @@ import poker.Player;
 import poker.RoundState;
 
 
-public class QuadTest {
+public class TripleHandTest {
 
 	@Test
 	public void testGetOwner() {
 		Player player = new Player("Samanthero");
-		Quad quad = new Quad(player, 2);
-		Assert.assertTrue("These should be same", quad.getOwner()
+		Triple triple = new Triple(player, 2);
+		Assert.assertTrue("These should be same", triple.getOwner()
 				.equals(player));
 		// Assert.assertTrue("These should be same", false);
 	}
@@ -27,8 +27,8 @@ public class QuadTest {
 	@Test
 	public void testIsBS() {
 		Player player = new Player("Jerry");
-		Quad quad = new Quad(player, 2);
-		Assert.assertTrue("Quad is not BS", quad.isBS() == false);
+		Triple triple = new Triple(player, 2);
+		Assert.assertTrue("Triple is not BS", triple.isBS() == false);
 	}
 
 	@Test
@@ -39,26 +39,26 @@ public class QuadTest {
 		cards.add(new Card(2, 'd'));
 		st.addCards(cards);
 		Player player = new Player("Joel");
-		Quad quad = new Quad(player, 2);
-		Assert.assertTrue("There is a quad of twos", quad.isInPlay(st));
+		Triple triple = new Triple(player, 2);
+		Assert.assertTrue("There is a triple of twos", triple.isInPlay(st));
 	}
 
 	@Test
 	public void testGetValue() {
 		Player player = new Player("Ian");
-		Quad quad = new Quad(player, 4);
-		Assert.assertEquals("he#", quad.getValue());
+		Triple triple = new Triple(player, 4);
+		Assert.assertEquals("ce#", triple.getValue());
 	}
 
 	@Test
 	public void testCompareTo() {
 		Player player1 = new Player("Andruw");
 		Player player2 = new Player("Will");
-		Quad quad1 = new Quad(player1, 5);
-		Quad quad2 = new Quad(player2, 5);
+		Triple triple1 = new Triple(player1, 5);
+		Triple triple2 = new Triple(player2, 5);
 		Assert
 				.assertTrue("Will has a higher hand",
-						quad2.compareTo(quad1) == 0);
+						triple2.compareTo(triple1) == 0);
 	}
 
 	@Test
@@ -71,11 +71,10 @@ public class QuadTest {
 		Player player1=new Player("Alan");
 		Player player2=new Player("Sarah");
 		RoundState st=new RoundState();
-		Quad quad1=new Quad(player1, 4);
-		Quad quad2=new Quad(player2, 5);
-		st.commitNewPlay(quad1);
-		Assert.assertTrue(quad2.isLegal(st));
+		Triple triple1=new Triple(player1, 4);
+		Triple triple2=new Triple(player2, 5);
+		st.commitNewPlay(triple1);
+		Assert.assertTrue(triple2.isLegal(st));
 	}
-
 
 }

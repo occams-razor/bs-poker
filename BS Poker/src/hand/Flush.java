@@ -32,7 +32,7 @@ public class Flush extends Hand {
 	}
 
 	@Override
-	public boolean isInPlay(RoundState state) {
+	public boolean isInPlay(RoundState state) { //consider not removing cards for isinplay; check for Comodification
 		// TODO Auto-generated method stub
 		List<Card> cards = state.getCards();
 		int num = 0;
