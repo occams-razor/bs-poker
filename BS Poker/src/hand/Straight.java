@@ -32,7 +32,8 @@ public class Straight extends Hand {
 	@Override
 	public boolean isInPlay(RoundState state) { //doesn't work as originally written; "check for Comodification".  Do we need to remove any cards?
 		List<Card> cards = state.getCards();
-
+		//counts a straight as five cards going from the declared value (ie straight to the 7) 
+		//down to 4 lower than the declared value (ie 3,4,5,6,7)
 		int a = 0, b = 0, c = 0, d = 0, e = 0;
 
 		for (Card p : cards) {
