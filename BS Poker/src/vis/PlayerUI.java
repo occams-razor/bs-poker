@@ -5,12 +5,9 @@ import java.awt.ComponentOrientation;
 import java.awt.FlowLayout;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 
@@ -26,11 +23,6 @@ import poker.Player;
 public class PlayerUI extends JFrame {
 	private JList list;
 	private DefaultListModel listModel;
-
-	private static final String hireString = "Hire";
-	private static final String fireString = "Fire";
-	private JButton fireButton;
-	private JTextField employeeName;
 
 	private PlayerStats playerstats;
 
@@ -52,7 +44,6 @@ public class PlayerUI extends JFrame {
 		list.setSelectedIndex(0);
 		// list.addListSelectionListener(this);
 		list.setVisibleRowCount(5);
-		JScrollPane listScrollPane = new JScrollPane(playerstats);
 
 		JList list2 = new JList(listModel);
 		list2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -82,26 +73,7 @@ public class PlayerUI extends JFrame {
 
 		getContentPane().add(compsToExperiment, BorderLayout.AFTER_LINE_ENDS);
 		getContentPane().add(controls, BorderLayout.NORTH);
-		// compsToExperiment.validate();
-		// compsToExperiment.repaint();
-		//
-		// JButton hireButton = new JButton(hireString);
-		// // HireListener hireListener = new HireListener(hireButton);
-		// // hireButton.setActionCommand(hireString);
-		// // hireButton.addActionListener(hireListener);
-		// // hireButton.setEnabled(false);
-		//
-		// fireButton = new JButton(fireString);
-		// fireButton.setActionCommand(fireString);
-		// // fireButton.addActionListener(new FireListener());
-		//
-		// employeeName = new JTextField(10);
-		// // employeeName.addActionListener(hireListener);
-		// // employeeName.getDocument().addDocumentListener(hireListener);
-		// // String name = listModel.getElementAt(list.getSelectedIndex())
-		// // .toString();
-		//
-		// // Create a panel that uses BoxLayout.
+
 		// JPanel buttonPane = new JPanel();
 		// buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
 		// buttonPane.add(fireButton);
