@@ -53,17 +53,22 @@ public class RoyalFlush extends Hand {
 
 	@Override
 	public boolean isInPlay(RoundState state) {
-		// TODO Auto-generated method stub
 		List<Card> cards = state.getCards();
-		for (Card c : cards) {
-			if (c.getSuit() != suit)
-				cards.remove(c);
+		int a = 0, b = 0, c = 0, d = 0, e = 0;
+
+		for (Card p : cards) {
+			if (p.getRank() == 10 && p.getSuit() == suit)
+				a = 1;
+			if (p.getRank() == 11 && p.getSuit() == suit)
+				b = 1;
+			if (p.getRank() == 12 && p.getSuit() == suit)
+				c = 1;
+			if (p.getRank() == 13 && p.getSuit() == suit)
+				d = 1;
+			if (p.getRank() == 14 && p.getSuit() == suit)
+				e = 1;
 		}
-		for (Card c : cards) {
-			if (c.getRank() < 10)
-				cards.remove(c);
-		}
-		if (cards.size() >= 5)
+		if (a + b + c + d + e == 5)
 			return true;
 		return false;
 	}

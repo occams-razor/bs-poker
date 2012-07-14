@@ -36,19 +36,21 @@ public class StraightFlush extends Hand {
 	public boolean isInPlay(RoundState state) {
 		// TODO Auto-generated method stub
 		List<Card> cards = state.getCards();
-		for (Card c : cards) {
-			if (c.getSuit() != suit)
-				cards.remove(c);
+		int a = 0, b = 0, c = 0, d = 0, e = 0;
+
+		for (Card p : cards) {
+			if (p.getRank() == rank && p.getSuit() == suit)
+				a = 1;
+			if (p.getRank() == rank - 1 && p.getSuit() == suit)
+				b = 1;
+			if (p.getRank() == rank - 2 && p.getSuit() == suit)
+				c = 1;
+			if (p.getRank() == rank - 3 && p.getSuit() == suit)
+				d = 1;
+			if (p.getRank() == rank - 4 && p.getSuit() == suit)
+				e = 1;
 		}
-		for (Card c : cards) {
-			if (c.getRank() > rank)
-				cards.remove(c);
-		}
-		for (Card c : cards) {
-			if (c.getRank() < rank - 4)
-				cards.remove(c);
-		}
-		if (cards.size() == 5)
+		if (a + b + c + d + e == 5)
 			return true;
 		return false;
 	}
