@@ -70,5 +70,14 @@ public class Deck {
 		}
 		return tempCards; // TODO
 	}
+	public String toString()
+	{
+		String deck="";
+		for(Card c: cards)
+		{
+			deck+=c + " ";
+		}
+		return deck;
+	}
 
 }

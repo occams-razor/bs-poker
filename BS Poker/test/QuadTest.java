@@ -37,6 +37,9 @@ public class QuadTest {
 		List<Card> cards = new LinkedList<Card>();
 		cards.add(new Card(2, 's'));
 		cards.add(new Card(2, 'd'));
+		cards.add(new Card(5, 'h'));
+		cards.add(new Card(2, 'h'));
+		cards.add(new Card(2, 'c'));
 		st.addCards(cards);
 		Player player = new Player("Joel");
 		Quad quad = new Quad(player, 2);

@@ -59,4 +59,8 @@ public class Card {
 		}
 		return "Unknown";
 	}
+	public String toString()
+	{
+		return getRank()+ " " + getSuitName();
+	}
 }
