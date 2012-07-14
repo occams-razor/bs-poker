@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 import hand.RoyalFlush;
+import hand.RoyalFlush;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,29 +19,36 @@ public class RoyalFlushTest {
 	@Test
 	public void testGetOwner() {
 		Player player = new Player("Samanthero");
-		RoyalFlush royalflush = new RoyalFlush(player, 's');
-		Assert.assertTrue("These should be same", royalflush.getOwner()
+		RoyalFlush royalFlush = new RoyalFlush(player, 'h');
+		Assert.assertTrue("These should be same", royalFlush.getOwner()
 				.equals(player));
 	}
 
 	@Test
 	public void testIsBS() {
 		Player player = new Player("Jerry");
-		RoyalFlush royalflush = new RoyalFlush(player, 'd');
-		Assert.assertTrue("Hand is not BS", royalflush.isBS() == false);
+		RoyalFlush royalFlush = new RoyalFlush(player,  'h');
+		Assert.assertTrue("Hand is not BS", royalFlush.isBS() == false);
 	}
 
 	@Test
 	public void testIsInPlay() {
 		Player player = new Player("Fred");
-		RoyalFlush royalflush = new RoyalFlush(player, 'h');
+		RoyalFlush royalFlush = new RoyalFlush(player,  'c');
 		RoundState st = new RoundState();
 		List<Card> cards = new LinkedList<Card>();
 		cards.add(new Card(2, 's'));
 		cards.add(new Card(3, 'd'));
 		cards.add(new Card(12, 'h'));
+		cards.add(new Card(10, 'c'));
+		cards.add(new Card(11, 'c'));
+		cards.add(new Card(7, 'c'));
+		cards.add(new Card(12, 'c'));
+		cards.add(new Card(13, 'c'));
+		cards.add(new Card(5, 'c'));
+		cards.add(new Card(14, 'c'));
 		st.addCards(cards);
-		Assert.assertTrue("There is a three", royalflush.isInPlay(st));
+		Assert.assertTrue("There is a royal flush of clubs", royalFlush.isInPlay(st));
 
 		// fail("Not yet implemented");
 	}
@@ -48,8 +56,8 @@ public class RoyalFlushTest {
 	@Test
 	public void testGetValue() {
 		Player player = new Player("Ian");
-		RoyalFlush royalflush = new RoyalFlush(player, 's');
-		Assert.assertEquals("ae#", royalflush.getValue());
+		RoyalFlush royalFlush = new RoyalFlush(player, 'h');
+		Assert.assertEquals("jc#", royalFlush.getValue());
 
 	}
 
@@ -57,19 +65,19 @@ public class RoyalFlushTest {
 	public void testCompareTo() {
 		Player player1 = new Player("Andruw");
 		Player player2 = new Player("Will");
-		RoyalFlush royalflush1 = new RoyalFlush(player1, 'h');
-		RoyalFlush royalflush2 = new RoyalFlush(player2, 'd');
+		RoyalFlush royalFlush1 = new RoyalFlush(player1, 'c');
+		RoyalFlush royalFlush2 = new RoyalFlush(player2, 'h');
 		Assert
-				.assertTrue("Will has a royalflusher hand",
-						royalflush2.compareTo(royalflush1) == -1);
+				.assertTrue("Will has a royalFlusher hand",
+						royalFlush2.compareTo(royalFlush1) > 0);
 	}
 
 	@Test
 	public void testToString() {  //not sure this works how we want it to//
 		Player player=new Player("Steve");
-		RoyalFlush royalflush=new RoyalFlush(player, 's');
-		System.out.println(royalflush);
-		Assert.assertEquals("Owner: Steve Hand Value: ao#", royalflush.toString());
+		RoyalFlush royalFlush=new RoyalFlush(player, 'd');
+		System.out.println(royalFlush);
+		Assert.assertEquals("Owner: Steve Hand Value: ja#", royalFlush.toString());
 		
 	}
 
@@ -78,10 +86,10 @@ public class RoyalFlushTest {
 		Player player1=new Player("Alan");
 		Player player2=new Player("Sarah");
 		RoundState st=new RoundState();
-		RoyalFlush royalflush1=new RoyalFlush(player1, 'd');
-		RoyalFlush royalflush2=new RoyalFlush(player2, 'h');
-		st.commitNewPlay(royalflush1);
-		Assert.assertTrue(royalflush2.isLegal(st));
+		RoyalFlush royalFlush1=new RoyalFlush(player1, 'h');
+		RoyalFlush royalFlush2=new RoyalFlush(player2, 's');
+		st.commitNewPlay(royalFlush1);
+		Assert.assertTrue(royalFlush2.isLegal(st));
 	}
 
 }

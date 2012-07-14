@@ -1,5 +1,5 @@
 import static org.junit.Assert.*;
-import hand.High;
+import hand.StraightFlush;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,29 +18,36 @@ public class StraightFlushTest {
 	@Test
 	public void testGetOwner() {
 		Player player = new Player("Samanthero");
-		High high = new High(player, 2);
-		Assert.assertTrue("These should be same", high.getOwner()
+		StraightFlush straightFlush = new StraightFlush(player, 6, 'h');
+		Assert.assertTrue("These should be same", straightFlush.getOwner()
 				.equals(player));
 	}
 
 	@Test
 	public void testIsBS() {
 		Player player = new Player("Jerry");
-		High high = new High(player, 2);
-		Assert.assertTrue("Hand is not BS", high.isBS() == false);
+		StraightFlush straightFlush = new StraightFlush(player, 8, 'h');
+		Assert.assertTrue("Hand is not BS", straightFlush.isBS() == false);
 	}
 
 	@Test
 	public void testIsInPlay() {
 		Player player = new Player("Fred");
-		High high = new High(player, 3);
+		StraightFlush straightFlush = new StraightFlush(player, 7, 'c');
 		RoundState st = new RoundState();
 		List<Card> cards = new LinkedList<Card>();
 		cards.add(new Card(2, 's'));
 		cards.add(new Card(3, 'd'));
 		cards.add(new Card(12, 'h'));
+		cards.add(new Card(10, 'c'));
+		cards.add(new Card(3, 'c'));
+		cards.add(new Card(7, 'c'));
+		cards.add(new Card(8, 'c'));
+		cards.add(new Card(6, 'c'));
+		cards.add(new Card(5, 'c'));
+		cards.add(new Card(4, 'c'));
 		st.addCards(cards);
-		Assert.assertTrue("There is a three", high.isInPlay(st));
+		Assert.assertTrue("There is a three", straightFlush.isInPlay(st));
 
 		// fail("Not yet implemented");
 	}
@@ -48,8 +55,8 @@ public class StraightFlushTest {
 	@Test
 	public void testGetValue() {
 		Player player = new Player("Ian");
-		High high = new High(player, 4);
-		Assert.assertEquals("ae#", high.getValue());
+		StraightFlush straightFlush = new StraightFlush(player, 8, 'h');
+		Assert.assertEquals("ii#", straightFlush.getValue());
 
 	}
 
@@ -57,19 +64,19 @@ public class StraightFlushTest {
 	public void testCompareTo() {
 		Player player1 = new Player("Andruw");
 		Player player2 = new Player("Will");
-		High high1 = new High(player1, 5);
-		High high2 = new High(player2, 5);
+		StraightFlush straightFlush1 = new StraightFlush(player1, 5, 'c');
+		StraightFlush straightFlush2 = new StraightFlush(player2, 7, 'h');
 		Assert
-				.assertTrue("Will has a higher hand",
-						high2.compareTo(high1) == 0);
+				.assertTrue("Will has a straightFlusher hand",
+						straightFlush2.compareTo(straightFlush1) > 0);
 	}
 
 	@Test
 	public void testToString() {  //not sure this works how we want it to//
 		Player player=new Player("Steve");
-		High high=new High(player, 14);
-		System.out.println(high);
-		Assert.assertEquals("Owner: Steve Hand Value: ao#", high.toString());
+		StraightFlush straightFlush=new StraightFlush(player, 13, 'd');
+		System.out.println(straightFlush);
+		Assert.assertEquals("Owner: Steve Hand Value: in#", straightFlush.toString());
 		
 	}
 
@@ -78,9 +85,9 @@ public class StraightFlushTest {
 		Player player1=new Player("Alan");
 		Player player2=new Player("Sarah");
 		RoundState st=new RoundState();
-		High high1=new High(player1, 4);
-		High high2=new High(player2, 5);
-		st.commitNewPlay(high1);
-		Assert.assertTrue(high2.isLegal(st));
+		StraightFlush straightFlush1=new StraightFlush(player1, 6, 'h');
+		StraightFlush straightFlush2=new StraightFlush(player2, 7, 's');
+		st.commitNewPlay(straightFlush1);
+		Assert.assertTrue(straightFlush2.isLegal(st));
 	}
 }

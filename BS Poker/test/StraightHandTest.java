@@ -33,7 +33,7 @@ public class StraightHandTest {
 	@Test
 	public void testIsInPlay() {
 		Player player = new Player("Fred");
-		Straight straight = new Straight(player, 3);
+		Straight straight = new Straight(player, 7);
 		RoundState st = new RoundState();
 		List<Card> cards = new LinkedList<Card>();
 		cards.add(new Card(2, 's'));

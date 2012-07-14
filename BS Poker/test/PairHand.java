@@ -17,7 +17,7 @@ public class PairHand {
 	@Test
 	public void testGetOwner() {
 		Player player = new Player("Samanthero");
-		Pair pair = new Pair(player, 2);
+		Pair pair = new Pair(player, 6);
 		Assert.assertTrue("These should be same", pair.getOwner()
 				.equals(player));
 		// Assert.assertTrue("These should be same", false);
@@ -38,7 +38,7 @@ public class PairHand {
 		cards.add(new Card(7, 'd'));
 		st.addCards(cards);
 		Player player = new Player("Joel");
-		Pair pair = new Pair(player, 2);
+		Pair pair = new Pair(player, 7);
 		Assert.assertTrue("There is a pair of twos", pair.isInPlay(st));
 	}
 

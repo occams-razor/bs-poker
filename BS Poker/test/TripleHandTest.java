@@ -37,6 +37,7 @@ public class TripleHandTest {
 		List<Card> cards = new LinkedList<Card>();
 		cards.add(new Card(2, 's'));
 		cards.add(new Card(2, 'd'));
+		cards.add(new Card(2, 'h'));
 		st.addCards(cards);
 		Player player = new Player("Joel");
 		Triple triple = new Triple(player, 2);
@@ -47,7 +48,8 @@ public class TripleHandTest {
 	public void testGetValue() {
 		Player player = new Player("Ian");
 		Triple triple = new Triple(player, 4);
-		Assert.assertEquals("ce#", triple.getValue());
+		System.out.println(triple.getValue());
+		Assert.assertEquals("de#", triple.getValue());
 	}
 
 	@Test
