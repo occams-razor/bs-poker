@@ -31,7 +31,7 @@ public class High extends Hand {
 
 	@Override
 	public Player getOwner() {
-		return owner;
+		return owner; //need something to return the owner's name, not the player object
 	}
 
 	@Override

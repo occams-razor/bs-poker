@@ -32,14 +32,12 @@ public class Flush extends Hand {
 	}
 
 	@Override
-	public boolean isInPlay(RoundState state) {
+	public boolean isInPlay(RoundState state) { //consider not removing cards for isinplay; check for Comodification
 		// TODO Auto-generated method stub
 		List<Card> cards = state.getCards();
 		for (Card c : cards) {
 			if (c.getSuit() != suit)
 				cards.remove(c);
-		}
-		for (Card c : cards) {
 			if (c.getRank() < rank)
 				cards.remove(c);
 		}

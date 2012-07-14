@@ -21,13 +21,11 @@ public class Triple extends Hand {
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
 		return owner;
 	}
 
 	@Override
 	public boolean isBS() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
