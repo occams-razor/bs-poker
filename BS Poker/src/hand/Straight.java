@@ -16,33 +16,24 @@ public class Straight extends Hand {
 	public Straight(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "e" +(char) ('a' + rank) + '#';
+		this.handValue = "e" +(char) ('a' + rank) + '#'; //Need to decide value for flush/straight
 	}
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
 		return owner;
 	}
 
 	@Override
 	public boolean isBS() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean isInPlay(RoundState state) {
-		// TODO Auto-generated method stub
+	public boolean isInPlay(RoundState state) { //doesn't work as originally written; "check for Comodification".  Do we need to remove any cards?
 		List<Card> cards = state.getCards();
-		for (Card c : cards) {
-			if (c.getRank() > rank)
-				cards.remove(c);
-		}
-		for (Card c : cards) {
-			if (c.getRank() < rank - 4)
-				cards.remove(c);
-		}
+		//counts a straight as five cards going from the declared value (ie straight to the 7) 
+		//down to 4 lower than the declared value (ie 3,4,5,6,7)
 		int a = 0, b = 0, c = 0, d = 0, e = 0;
 
 		for (Card p : cards) {

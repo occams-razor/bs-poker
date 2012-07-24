@@ -63,13 +63,24 @@ public class HighHandTest {
 	}
 
 	@Test
-	public void testToString() {
-		// fail("Not yet implemented");
+	public void testToString() {  //not sure this works how we want it to//
+		Player player=new Player("Steve");
+		High high=new High(player, 14);
+		System.out.println(high);
+		Assert.assertEquals("Owner: Steve Hand Value: ao#", high.toString());
+		
 	}
 
 	@Test
 	public void testIsLegal() {
-		// fail("Not yet implemented");
+		Player player1=new Player("Alan");
+		Player player2=new Player("Sarah");
+		RoundState st=new RoundState();
+		High high1=new High(player1, 4);
+		High high2=new High(player2, 5);
+		st.commitNewPlay(high1);
+		Assert.assertTrue(high2.isLegal(st));
+	
 	}
 
 }

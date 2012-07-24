@@ -87,4 +87,9 @@ public class Player {
 	public boolean hasCards() {
 		return cards != null && cards.size() != 0;
 	}
+	public String toString()
+	{
+		return name;
+		
+	}
 }

@@ -36,24 +36,21 @@ public class TwoPair extends Hand {
 	@Override
 	public boolean isInPlay(RoundState state) {
 		// TODO Auto-generated method stub
-		int a = 0;
 		List<Card> cards = state.getCards();
+		int num1 = 0;
+		int num2 = 0;
 		for (Card c : cards) {
-			if (c.getRank() != rank1)
-				cards.remove(c);
+			if (c.getRank() == rank1)
+				num1++;
 		}
-		if (cards.size() >= 2)
-			a++;
 
 		cards = state.getCards();
 		for (Card c : cards) {
-			if (c.getRank() != rank2)
-				cards.remove(c);
+			if (c.getRank() == rank2)
+				num2++;
 		}
-		if (cards.size() >= 2)
-			a++;
 
-		if (a == 2)
+		if (num1 >= 2 && num2 >= 2)
 			return true;
 		return false;
 	}

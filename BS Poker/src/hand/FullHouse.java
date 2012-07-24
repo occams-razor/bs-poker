@@ -18,7 +18,7 @@ public class FullHouse extends Hand {
 		this.owner = owner;
 		this.rank1 = rank1;
 		this.rank2 = rank2;
-		this.handValue = "g" + (char)('a' + rank1) + ('a' + rank2);
+		this.handValue = "g" + (char)('a' + rank1) + (char)('a' + rank2);
 	}
 
 	@Override
@@ -33,26 +33,18 @@ public class FullHouse extends Hand {
 	}
 
 	@Override
-	public boolean isInPlay(RoundState state) {
+	public boolean isInPlay(RoundState state) { //did we need to remove cards?  problems with comodification
 		// TODO Auto-generated method stub
-		int a = 0;
+		int a = 0; //need three of rank1
+		int b=0;  //need 2 of rank 2
 		List<Card> cards = state.getCards();
 		for (Card c : cards) {
-			if (c.getRank() != rank1)
-				cards.remove(c);
+			if (c.getRank() == rank1)
+				a++; //counts number of occurences of rank1
+			if (c.getRank()== rank2)
+				b++; //counts number of occurences of rank2
 		}
-		if (cards.size() >= 3)
-			a++;
-
-		cards = state.getCards();
-		for (Card c : cards) {
-			if (c.getRank() != rank2)
-				cards.remove(c);
-		}
-		if (cards.size() >= 2)
-			a++;
-
-		if (a == 2)
+		if(a>=3&&b>=2)
 			return true;
 		return false;
 	}

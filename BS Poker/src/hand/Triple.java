@@ -21,24 +21,23 @@ public class Triple extends Hand {
 
 	@Override
 	public Player getOwner() {
-		// TODO Auto-generated method stub
 		return owner;
 	}
 
 	@Override
 	public boolean isBS() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isInPlay(RoundState state) {
 		List<Card> cards = state.getCards();
+		int num = 0;
 		for (Card c : cards) {
-			if (c.getRank() != rank)
-				cards.remove(c);
+			if (c.getRank() == rank)
+				num++;
 		}
-		if (cards.size() >= 3)
+		if (num >= 3)
 			return true;
 		return false;
 
