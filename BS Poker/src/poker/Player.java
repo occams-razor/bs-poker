@@ -3,7 +3,7 @@ package poker;
 import java.util.List;
 
 import playable.Hand;
-import vis.PlayerUI;
+import vis.PlayerSwingUI;
 
 /**
  * A Player has cards, is Alive or not, a name,
@@ -22,7 +22,7 @@ public class Player {
 	// boolean isActive;
 	Hand myHand;
 
-	PlayerUI ui;
+	PlayerSwingUI ui;
 	private List<Card> cards;
 
 	public Player(String name) {

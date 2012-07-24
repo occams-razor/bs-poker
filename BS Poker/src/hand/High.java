@@ -26,7 +26,7 @@ public class High extends Hand {
 	public High(Player owner, int rank) {
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "a" + (char)('a' + rank) + '#';
+		this.handValue = "a" + (char) ('a' + rank) + '#';
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public class Flush extends Hand {
 		this.suit = suit;
 		this.owner = owner;
 		this.rank = rank;
-		this.handValue = "f" +(char) ('a' + rank) + '#';
+		this.handValue = "f" + (char) ('a' + rank) + '#';
 	}
 
 	@Override

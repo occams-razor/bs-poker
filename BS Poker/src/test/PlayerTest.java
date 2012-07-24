@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 import poker.Card;
 import poker.Player;
-import vis.PlayerUI;
+import vis.PlayerSwingUI;
 
 public class PlayerTest {
 
@@ -26,6 +26,6 @@ public class PlayerTest {
 		// PlayerUI playerUI = new PlayerUI(player);
 		// playerUI.setOpaque(true);
 
-		JFrame frame = new PlayerUI(player);
+		JFrame frame = new PlayerSwingUI(player);
 	}
 }
